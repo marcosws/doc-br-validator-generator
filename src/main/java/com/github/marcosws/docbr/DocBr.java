@@ -8,7 +8,10 @@ public class DocBr {
 	
 	public static String generateCpf(){
 		
-		String numberCpf = generateNumbers(9);
+		String numberCpf = "";
+		for(int i = 0; i < 9; i++)
+			numberCpf += String.valueOf(Math.round(Math.random() * 9));
+
 		int[] multiplierWeight1 = {10, 9, 8, 7, 6, 5, 4, 3, 2};
 		int[] multiplierWeight2 = {11, 10, 9, 8, 7, 6, 5, 4, 3, 2};
 		int totalSum = 0;
@@ -34,7 +37,11 @@ public class DocBr {
 
 	public static String generateCnpj(){
 		
-		String numberCnpj = generateNumbers(8).concat("0001");
+		String numberCnpj = "";
+		for(int i = 0; i < 8; i++)
+			numberCnpj += String.valueOf(Math.round(Math.random() * 9));
+		
+		numberCnpj = numberCnpj.concat("0001");
 		int[] multiplierWeight1 = {5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
 		int[] multiplierWeight2 = {6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
 		int totalSum = 0;
@@ -147,13 +154,4 @@ public class DocBr {
 
 	}
 	
-	private static String generateNumbers(int numberOfDigits) {
-		String number = "";
-		for(int i = 0; i < numberOfDigits; i++)
-			number += String.valueOf(Math.round(Math.random() * 9));
-		return number;
-	}
-
-	
-
 }
